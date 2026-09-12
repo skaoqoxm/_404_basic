@@ -9,7 +9,8 @@ from app.database import get_db
 from app.models import User
 from app.schemas import UserCreate,Token,UserResponse
 from app.core.security import hash_password, verify_password, create_access_token
-from app.dependencies import get_current_user
+from app.dependencies import get_current_user,get_item_service
+
 from app.services import Item_Service
 
 router = APIRouter()   
@@ -62,6 +63,6 @@ def get_me(current_user: User = Depends(get_current_user)):
 @router.get("/{item_id}",response_model=UserResponse)
 def get_item_id(
    item_id:int,
-   service:Item_Service = Depends(get_db)
+   service:Item_Service = Depends(get_item_service)    # service是变量名":"后跟的是类型注解
 ):
-   return service.Item_Service(item_id)
+   return service.get_Item(item_id)

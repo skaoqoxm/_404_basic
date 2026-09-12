@@ -3,7 +3,6 @@ FastAPI 应用入口
 建表，健康检查接口后续挂路由
 """
 from fastapi import FastAPI
-
 from app.database import engine, Base, redis_client
 from app.models import User, Item #先引用才会收集得到
 from app.routers import auth
@@ -46,3 +45,6 @@ async def log_request(request: Request, call_next):
     print(f"Status: {response.status_code}")
     print("=== End ===")
     return response
+
+
+
