@@ -1,0 +1,25 @@
+# 虚拟环境
+.venv/
+venv/
+env/
+ENV/
+
+# Python 缓存
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# 环境变量，JWT 密钥别提交
+.env
+.env.*
+
+# 数据库
+*.sqlite3
+*.db
+
+# 编辑器
+.idea/
+.vscode/
