@@ -8,7 +8,7 @@ class ItemBase(BaseModel):
 
 class ItemCreate(ItemBase):
     status: Optional[str] = Field(default="active", description="数据条目状态，默认为 active")
-
+    owner_id:int
     @field_validator("status")
     @classmethod
     def validate_status(cls, v):

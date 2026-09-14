@@ -12,4 +12,17 @@ class Item_Service:
         if item is None:
             raise HTTPException(404,"无法找到对应ID")
         return item
+
+    def delete_item(self,item_id:int):
+        item_id=item_id   
+        if item_id is None:
+            raise HTTPException(404,"无法找到对应id")
+        self.repo.delete(item_id)
+        return {"OK":True}
+
     
+    def create_items(self,item_data:ItemCreate):
+       # if self.get_Item(item_data.get("id")):
+         #   raise HTTPException(404,"已存在相同的Item")
+        return self.repo.creat_item(item_data)
+

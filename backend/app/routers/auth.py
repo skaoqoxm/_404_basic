@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 from fastapi.security import OAuth2PasswordRequestForm 
 from app.database import get_db
 from app.models import User
-from app.schemas import UserCreate,Token,UserResponse
+from app.schemas import UserCreate,Token,UserResponse,ItemCreate,ItemResponse
 from app.core.security import hash_password, verify_password, create_access_token
 from app.dependencies import get_current_user,get_item_service
 
@@ -66,3 +66,18 @@ def get_item_id(
    service:Item_Service = Depends(get_item_service)    # service是变量名":"后跟的是类型注解
 ):
    return service.get_Item(item_id)
+
+@router.get("/del/{item_id}",response_model=UserResponse)
+def del_item_id(
+   item_id:int,
+   sservice:Item_Service=Depends(get_item_service)
+):
+   return sservice.delete_item(item_id)
+
+@router.post("/create", response_model=ItemResponse)
+
+def create_item(
+    item_data:ItemCreate,
+    service:Item_Service = Depends(get_item_service)  
+):
+   return service.create_items(item_data)
