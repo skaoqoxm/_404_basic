@@ -7,7 +7,8 @@ from sqlalchemy.orm import Session
 from fastapi.security import OAuth2PasswordRequestForm 
 from app.database import get_db
 from app.models import User
-from app.schemas import UserCreate,Token,UserResponse,ItemCreate,ItemResponse
+from app.schemas import UserCreate, UserUpdate, Token, UserResponse, ItemCreate, ItemResponse, ItemUpdate
+from app.models import Item
 from app.core.security import hash_password, verify_password, create_access_token
 from app.dependencies import get_current_user,get_item_service
 
@@ -60,6 +61,34 @@ def login(
 def get_me(current_user: User = Depends(get_current_user)):
     return current_user
 
+@router.get("/users", response_model=list[UserResponse])
+def get_users(db: Session = Depends(get_db)):
+    return db.query(User).order_by(User.id.desc()).all()
+
+@router.patch("/users/{user_id}", response_model=UserResponse)
+def update_user(user_id: int, user_data: UserUpdate, db: Session = Depends(get_db)):
+    user = db.query(User).filter(User.id == user_id).first()
+    if user is None:
+        raise HTTPException(status_code=404, detail="用户不存在")
+    for field, value in user_data.model_dump(exclude_unset=True).items():
+        setattr(user, field, value)
+    db.commit()
+    db.refresh(user)
+    return user
+
+@router.delete("/users/{user_id}")
+def delete_user(user_id: int, db: Session = Depends(get_db)):
+    user = db.query(User).filter(User.id == user_id).first()
+    if user is None:
+        raise HTTPException(status_code=404, detail="用户不存在")
+    db.delete(user)
+    db.commit()
+    return {"ok": True}
+
+@router.get("/items", response_model=list[ItemResponse])
+def get_items(db: Session = Depends(get_db)):
+    return db.query(Item).order_by(Item.id.desc()).all()
+
 @router.get("/{item_id}",response_model=UserResponse)
 def get_item_id(
    item_id:int,
@@ -67,12 +96,12 @@ def get_item_id(
 ):
    return service.get_Item(item_id)
 
-@router.get("/del/{item_id}",response_model=UserResponse)
+@router.delete("/del/{item_id}")
 def del_item_id(
-   item_id:int,
+    item_id:int,
    sservice:Item_Service=Depends(get_item_service)
 ):
-   return sservice.delete_item(item_id)
+    return sservice.delete_item(item_id)
 
 @router.post("/create", response_model=ItemResponse)
 
@@ -81,3 +110,12 @@ def create_item(
     service:Item_Service = Depends(get_item_service)  
 ):
    return service.create_items(item_data)
+
+
+@router.patch("/ut/{item_id}")
+def update_item(
+    item_id: int,
+    item_data: ItemUpdate,
+    service: Item_Service = Depends(get_item_service)
+):
+    return service.update_item(item_data, item_id)

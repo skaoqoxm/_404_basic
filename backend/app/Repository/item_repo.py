@@ -4,10 +4,19 @@ from app.schemas import ItemCreate
 class ItemRepository:
     def __init__(self,db:session):
         self.db = db
-
-    def get_by_id(self,item_id:int) -> Item | None:  #查
+    #查
+    def get_by_id(self,item_id:int) -> Item | None:  
         return self.db.get(Item,item_id)
 
+    def get_by_owner_id(self, owner_id: int) -> Item | None:
+        return (
+        self.db.query(Item)
+        .filter(Item.owner_id == owner_id)
+        .first()
+        )
+
+    def get_all(self) -> list[Item]:
+        return self.db.query(Item).order_by(Item.id.desc()).all()
 
     #增
     def creat_item(self,data:ItemCreate)->Item:
