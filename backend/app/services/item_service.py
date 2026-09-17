@@ -14,10 +14,10 @@ class Item_Service:
         return item
 
     def delete_item(self,item_id:int):
-        item_id=item_id   
-        if item_id is None:
+        item = self.repo.get_by_id(item_id)
+        if item is None:
             raise HTTPException(404,"无法找到对应id")
-        self.repo.delete(item_id)
+        self.repo.delete(item)
         return {"OK":True}
 
     
