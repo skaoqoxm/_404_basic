@@ -1,0 +1,117 @@
+可以，整体流程总结如下。
+
+**一、必须准备的文件**
+
+后端目录至少需要：
+
+```text
+backend/
+├── Dockerfile
+├── requirements.txt
+├── run.py
+└── app/
+```
+
+其中：
+
+- `Dockerfile`：必须，告诉 Docker 如何制作镜像。
+- `requirements.txt`：当前 Dockerfile 会读取它安装 Python 依赖。
+- `run.py`、`app/`：后端源代码。
+
+**二、可选文件**
+
+```text
+.dockerignore
+.env
+.env.example
+compose.yaml
+```
+
+作用分别是：
+
+- `.dockerignore`：排除 `.venv`、缓存等无关文件，推荐使用。
+- `.env`：运行容器时传入数据库、Redis、JWT 配置。
+- `.env.example`：环境变量模板，方便别人配置。
+- `compose.yaml`：可选，用来统一管理后端、MySQL、Redis 等多个容器。
+
+`docker-compose.yml` 和 `compose.yaml` 都可以，`compose.yaml` 是现在推荐的名称。
+
+**三、构建镜像**
+
+在 `backend` 目录执行：
+
+```bash
+docker build -t basic-backend:local .
+```
+
+这里：
+
+- `build`：构建镜像
+- `-t basic-backend:local`：设置镜像名称和标签
+- `.`：使用当前目录作为构建上下文
+
+**四、启动容器**
+
+先准备配置：
+
+```bash
+cp .env.example .env
+```
+
+修改 `.env` 后运行：
+
+```bash
+docker run --rm -p 8000:8000 \
+  --env-file .env \
+  basic-backend:local
+```
+
+然后访问：
+
+```text
+http://127.0.0.1:8000
+```
+
+**五、导出和搬迁镜像**
+
+导出：
+
+```bash
+docker save -o basic-backend.tar basic-backend:local
+```
+
+在另一台电脑导入：
+
+```bash
+docker load -i basic-backend.tar
+```
+
+然后仍然需要准备目标电脑上的 `.env`，再启动容器：
+
+```bash
+docker run --rm -p 8000:8000 \
+  --env-file .env \
+  basic-backend:local
+```
+
+**六、Compose 的作用**
+
+如果只运行后端，`Dockerfile + docker run` 就够了。
+
+如果想同时启动后端、MySQL 和 Redis，可以添加 `compose.yaml`，之后使用：
+
+```bash
+docker compose up --build
+```
+
+所以最核心的关系是：
+
+```text
+Dockerfile
+    ↓ docker build
+镜像
+    ↓ docker run
+容器
+```
+
+而 `compose.yaml` 是可选的管理工具，用来一次性管理多个容器。
