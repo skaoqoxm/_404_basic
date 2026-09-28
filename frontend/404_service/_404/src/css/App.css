@@ -513,8 +513,9 @@
 
 .page {
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
+  height: 100svh;
   min-height: 620px;
   overflow: hidden;
   isolation: isolate;
@@ -1088,20 +1089,58 @@ footer span { color: var(--green); }
 }
 
 @media (max-width: 900px) {
-  body { overflow: auto; }
-  .page { min-height: 760px; }
+  body { overflow-y: auto; }
+  .page { width: 100%; height: max(100svh, 760px); min-height: 0; }
   .topbar { left: 28px; right: 22px; grid-template-columns: auto 1fr auto; column-gap: 16px; }
   .top-glitch, .top-line, .left-rail, .right-copy, .side-note, .dot-column { display: none; }
-  .copy { left: 26px; top: 140px; width: calc(100vw - 52px); }
+  .copy { left: 26px; top: clamp(125px, 18svh, 150px); width: calc(100% - 52px); }
   .tiny-x, .jp-small, .slashes { margin-left: 0; }
-  .number { font-size: clamp(116px, 34vw, 180px); height: 135px; letter-spacing: -5px; }
-  .copy h1 { margin-top: 26px; }
-  .message { max-width: 360px; }
+  .number { font-size: clamp(108px, 34vw, 180px); height: clamp(126px, 35vw, 145px); letter-spacing: -.04em; margin-top: 12px; }
+  .copy h1 { margin-top: 22px; font-size: clamp(26px, 5.4vw, 34px); line-height: 1.14; }
+  .message { max-width: 360px; font-size: 14px; }
   .actions { gap: 16px; flex-wrap: wrap; }
-  .hero img { right: -240px; top: 24px; height: 88vh; min-height: 640px; opacity: .56; }
+  .hero img { right: -240px; top: 24px; height: min(88svh, 700px); min-height: 0; opacity: .5; }
   .shard-a { right: -18vw; width: 62vw; height: 62vh; }
   .shard-b { left: 52vw; width: 34vw; }
   .shard-c { left: 34vw; width: 52vw; }
   .green-dot { right: 10vw; bottom: 24vh; }
   footer { left: 26px; right: 24px; }
+}
+
+@media (max-width: 560px) {
+  .topbar { inset: 20px 18px auto; height: 48px; }
+  .brand strong { font-size: 30px; }
+  .brand span { margin-top: 12px; font-size: 11px; }
+  .home { font-size: 11px; }
+  .copy { left: 20px; top: 120px; width: calc(100% - 40px); }
+  .tiny-x { font-size: 16px; letter-spacing: 10px; margin-bottom: 10px; }
+  .jp-small { margin-bottom: 10px; font-size: 14px; letter-spacing: 3px; }
+  .number { height: 116px; font-size: clamp(100px, 34vw, 132px); letter-spacing: -5px; }
+  .copy h1 { margin-top: 18px; font-size: clamp(24px, 7vw, 32px); }
+  .message { max-width: 330px; font-size: 13px; }
+  .actions { gap: 12px; margin-top: 20px; }
+  .actions a { font-size: 11px; }
+  .hero img { right: -250px; opacity: .4; }
+  .micro-a, .micro-b, .diag-line { display: none; }
+  footer { left: 20px; right: 18px; bottom: 16px; font-size: 8px; letter-spacing: .5px; }
+  .social { gap: 12px; font-size: 16px; }
+  .panel { padding: 72px 20px 64px; }
+  .kicker { font-size: 10px; letter-spacing: 2px; }
+  .sec-sub { font-size: 11px; letter-spacing: .06em; }
+  .cards { margin-top: 34px; gap: 16px; grid-template-columns: minmax(0, 1fr); }
+  .card { padding: 22px 18px 24px; }
+  .chip { white-space: normal; text-align: right; line-height: 1.4; }
+  .about-grid { margin-top: 34px; gap: 28px; }
+  .stats { gap: 8px; }
+  .stat { padding: 14px 6px; }
+  .stat b { font-size: 24px; }
+  .stat span { font-size: 8px; letter-spacing: .5px; overflow-wrap: anywhere; }
+  .end-bar { padding: 14px 20px; font-size: 8px; letter-spacing: 1px; }
+}
+
+@media (max-height: 700px) and (min-width: 901px) {
+  .copy { top: 12vh; }
+  .number { height: clamp(132px, 16vw, 190px); font-size: clamp(132px, 16vw, 220px); }
+  .copy h1 { margin-top: 22px; }
+  .hero img { height: 112vh; }
 }

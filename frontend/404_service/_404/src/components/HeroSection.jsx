@@ -41,10 +41,10 @@ export default function HeroSection() {
           <span className="digit">4</span>
         </div>
 
-        <h1 className="reveal-copy">404'S <em>PERSONAL</em> WEBSITE</h1>
+        <h1 className="reveal-copy">404 的 <em>个人</em>主页</h1>
         <p className="message reveal-copy">
-          A PERSONAL SPACE FOR MY WORK, IDEAS,<br />
-          AND CREATIVE EXPERIMENTS.
+          这是我的个人空间，用来展示作品、想法，<br />
+          以及正在进行的创意实验。
         </p>
 
         <nav className="actions reveal-copy">
