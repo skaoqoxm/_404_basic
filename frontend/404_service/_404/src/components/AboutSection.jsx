@@ -5,7 +5,7 @@ export default function AboutSection() {
         <div className="dots" style={{ bottom: '70px', right: '8%', width: '100px', height: '50px' }} />
         <div className="wrap">
           <div className="reveal">
-            <p className="kicker">SECTION 02 <span>///</span> 私について</p>
+            <p className="kicker">SECTION 02 <span>///</span> ABOUT ME</p>
             <h2 className="sec-title">ABOUT</h2>
           </div>
 
@@ -16,14 +16,14 @@ export default function AboutSection() {
                 I build interfaces with strong typography, geometric masks and a bit of noise —
                 <b>black, purple and a flash of lime.</b>
               </p>
-              <p className="ab-jp">黒・紫・緑。エラーさえも個性に変える。タイポグラフィと幾何学で「404」の世界を作っています。</p>
+              <p className="ab-jp">Black, purple, and green. Turning errors into personality. I create a 404 world through typography and geometry.</p>
             </div>
 
             <div className="reveal">
               <div className="stats">
-                <div className="stat"><b>03+</b><span>YEARS / 年数</span></div>
-                <div className="stat"><b>10+</b><span>PROJECTS / 制作</span></div>
-                <div className="stat"><b>24/7</b><span>ONLINE / 接続中</span></div>
+                <div className="stat"><b>03+</b><span>YEARS / EXPERIENCE</span></div>
+                <div className="stat"><b>10+</b><span>PROJECTS / BUILT</span></div>
+                <div className="stat"><b>24/7</b><span>ONLINE / CONNECTED</span></div>
               </div>
 
               <div className="skills">
@@ -35,12 +35,12 @@ export default function AboutSection() {
       </section>
 
       <section className="panel" id="contact">
-        <span className="panel-side">CONTACT — お問い合わせ ///</span>
+        <span className="panel-side">CONTACT — GET IN TOUCH ///</span>
         <div className="wrap">
           <div className="reveal">
-            <p className="kicker">SECTION 03 <span>///</span> お問い合わせ</p>
+            <p className="kicker">SECTION 03 <span>///</span> GET IN TOUCH</p>
             <h2 className="sec-title">SAY <b>HELLO</b></h2>
-            <p className="sec-sub">お気軽にどうぞ — いつでも連絡してください。DROP A LINE ANYTIME.</p>
+            <p className="sec-sub">Feel free to reach out anytime. DROP A LINE ANYTIME.</p>
           </div>
 
           <div className="actions reveal">
@@ -55,8 +55,8 @@ export default function AboutSection() {
       </section>
 
       <footer className="end-bar">
-        <span>© 2026 <b>404.WEB</b> — 本物のエラーではありません / NOT A REAL ERROR</span>
-        <span>PAGE NOT FOUND <b>=</b> PAGE NOT LOST</span>
+        <span>© 2026 <b>404.WEB</b> — JUST A PERSONAL WEBSITE / NOT A REAL ERROR</span>
+        <span>PERSONAL PAGE <b>=</b> PAGE NOT LOST</span>
       </footer>
     </>
   );

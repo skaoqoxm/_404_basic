@@ -1,40 +1,40 @@
 const works = [
   {
     idx: '01',
-    chip: 'IN DEV / 開発中',
+    chip: 'IN DEV / IN DEVELOPMENT',
     chipClass: 'dev',
     title: 'AI CUSTOMER SERVICE',
-    jp: '智能客服 · AI カスタマーサポート',
+    jp: '智能客服 · AI CUSTOMER SUPPORT',
     desc: 'My next build — an LLM-powered support agent with a RAG knowledge base: 24/7 instant replies, human-like tone, embeddable widget for any site.',
     tags: ['LLM', 'RAG', 'WIDGET', 'NEXT ↗'],
     featured: true,
   },
   {
     idx: '02',
-    chip: 'ONLINE / 公開中',
+    chip: 'ONLINE / LIVE',
     chipClass: 'online',
     title: 'PERSONAL PAGE',
-    jp: '个人主页 · このページ',
+    jp: '个人主页 · THIS WEBSITE',
     desc: 'The page you are on — hollow typography, inverted masks, pure HTML/CSS/JS. Error as an aesthetic.',
     tags: ['HTML', 'CSS', 'JS'],
     featured: false,
   },
   {
     idx: '03',
-    chip: 'PLANNED / 企画中',
+    chip: 'PLANNED / IN PLANNING',
     chipClass: 'plan',
     title: 'DATA DASHBOARD',
-    jp: '数据看板 · データパネル',
+    jp: '数据看板 · DATA DASHBOARD',
     desc: 'A dark-mode analytics dashboard with real-time charts and purple-on-black data viz. Sketching stage.',
     tags: ['VUE', 'ECHARTS', 'API'],
     featured: false,
   },
   {
     idx: '??',
-    chip: 'COMING SOON / 予告',
+    chip: 'COMING SOON / COMING SOON',
     chipClass: 'soon',
     title: 'PROJECT: ????',
-    jp: '秘密企画 · ひみつ',
+    jp: '秘密企画 · CLASSIFIED',
     desc: 'Classified. Something between a game and a toy. Will appear here when it stops returning 404.',
     tags: ['TBA', 'TBA', 'TBA'],
     featured: false,
@@ -46,12 +46,12 @@ export default function WorksSection() {
   return (
     <section className="panel" id="works">
       <div className="dots" style={{ top: '60px', left: '6%', width: '120px', height: '54px' }} />
-      <span className="panel-side">SELECTED WORKS — 2026 ///種</span>
+      <span className="panel-side">SELECTED WORKS — 2026 /// PROJECTS</span>
       <div className="wrap">
         <div className="reveal">
-          <p className="kicker">SECTION 01 <span>///</span> 制作物</p>
+          <p className="kicker">SECTION 01 <span>///</span> SELECTED WORK</p>
           <h2 className="sec-title">WORKS</h2>
-          <p className="sec-sub">作ったもの、これから作るもの — SELECTED &amp; UPCOMING PROJECTS</p>
+          <p className="sec-sub">CURRENT AND UPCOMING PROJECTS — SELECTED &amp; UPCOMING PROJECTS</p>
         </div>
 
         <div className="cards">

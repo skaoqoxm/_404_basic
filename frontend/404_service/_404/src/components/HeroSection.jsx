@@ -13,7 +13,7 @@ export default function HeroSection() {
           <span />
         </div>
         <div className="rail-line" />
-        <p>PAGE NOT FOUND</p>
+        <p>404 PERSONAL SITE</p>
         <div className="rail-line low" />
         <b>↙</b>
       </aside>
@@ -23,7 +23,7 @@ export default function HeroSection() {
           <strong>404</strong>
           <span>ERROR</span>
         </div>
-        <div className="top-glitch reveal-top">メモリ ::</div>
+        <div className="top-glitch reveal-top">MEMORY ::</div>
         <div className="top-line reveal-line" />
         <a href="#home" className="home reveal-top">
           HOME <i />
@@ -32,7 +32,7 @@ export default function HeroSection() {
 
       <section className="copy">
         <div className="tiny-x reveal-copy">× × ×</div>
-        <p className="jp-small reveal-copy">ページが見つかりません</p>
+        <p className="jp-small reveal-copy">WELCOME TO MY WEBSITE</p>
         <div className="slashes reveal-copy" />
 
         <div className="number" aria-label="404">
@@ -41,10 +41,10 @@ export default function HeroSection() {
           <span className="digit">4</span>
         </div>
 
-        <h1 className="reveal-copy">PAGE <em>NOT</em> FOUND</h1>
+        <h1 className="reveal-copy">404'S <em>PERSONAL</em> WEBSITE</h1>
         <p className="message reveal-copy">
-          THE PAGE YOU ARE LOOKING FOR<br />
-          MIGHT HAVE BEEN REMOVED OR IS TEMPORARILY UNAVAILABLE.
+          A PERSONAL SPACE FOR MY WORK, IDEAS,<br />
+          AND CREATIVE EXPERIMENTS.
         </p>
 
         <nav className="actions reveal-copy">
@@ -65,15 +65,15 @@ export default function HeroSection() {
       </section>
 
       <aside className="right-copy reveal-right">
-        <p>見つかりません</p>
+        <p>PAGE NOT FOUND</p>
         <div className="right-line" />
       </aside>
 
       <div className="side-note reveal-right">
         <p>
-          お探しのページは<br />
-          削除されたか<br />
-          利用できません。
+          THE PAGE YOU WERE LOOKING FOR<br />
+          MAY HAVE BEEN REMOVED OR<br />
+          IS CURRENTLY UNAVAILABLE.
         </p>
         <div className="slashes wide" />
       </div>
