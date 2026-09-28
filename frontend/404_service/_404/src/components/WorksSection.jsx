@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const works = [
   {
     idx: '01',
@@ -56,9 +58,9 @@ export default function WorksSection() {
 
         <div className="cards">
           {works.map((item) => (
-            <a
+            <Link
               key={item.idx}
-              href={item.idx === '01' ? '/chat' : '#'}
+              to={item.idx === '01' ? '/chat' : '#'}
               className={`card ${item.featured ? 'featured' : ''} ${item.mystery ? 'mystery' : ''} reveal`}
             >
               <div className="c-top">
@@ -72,7 +74,7 @@ export default function WorksSection() {
                   <span key={`${item.idx}-${tag}-${index}`}>{tag}</span>
                 ))}
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

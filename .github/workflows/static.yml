@@ -36,6 +36,9 @@ jobs:
       - name: Build frontend
         run: npm run build
         working-directory: frontend/404_service/_404
+      - name: Add SPA route fallback
+        run: cp dist/index.html dist/404.html
+        working-directory: frontend/404_service/_404
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload Pages artifact
