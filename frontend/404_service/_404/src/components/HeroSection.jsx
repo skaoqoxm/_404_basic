@@ -43,8 +43,8 @@ export default function HeroSection() {
 
         <h1 className="reveal-copy">404 的 <em>个人</em>主页</h1>
         <p className="message reveal-copy">
-          这是我的个人空间，用来展示作品、想法，<br />
-          以及正在进行的创意实验。
+          这是我的个人空间，用来展示作品、想法。<br />
+          以及正在进行的个人项目。
         </p>
 
         <nav className="actions reveal-copy">

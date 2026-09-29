@@ -563,7 +563,7 @@ function getLocalReply(message, status) {
 
   const text = message.toLowerCase();
   if (/price|pricing|cost|费用|价格/.test(text)) return '目前尚未接入实时价格服务，本地演示已收到你的消息。';
-  if (/how to|how do|guide|使用|怎么|介绍/.test(text)) return '你可以选择快捷提问，也可以直接输入消息。接入 API 后即可使用实时智能回复。';
+  if (/how to|how do|guide|使用|怎么|介绍/.test(text)) return '你可以选择快捷提问，也可以直接输入消息,后端维护中...';
   if (/human|agent|人工|客服/.test(text)) return '已为你标记人工客服需求。你也可以使用会话顶部的转接按钮切换处理状态。';
   return '谢谢你的消息！这是本地演示回复，接入 API 后即可使用实时智能助手。';
 }
